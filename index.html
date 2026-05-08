@@ -10,7 +10,14 @@
     <title>wedding</title>
 </head>
 <body>
-    <body>
+  
+        <div id="loader-wrapper">
+    <div class="loader-content">
+        <span class="letter">ن</span>
+        <span class="heart">❤</span>
+        <span class="letter">ع</span>
+    </div>
+</div>
 <div class="wedding-card">
   <!-- السيكشن الأول: الهيدر (صورة العروسين والأسماء) -->
 <header class="wedding-header">
@@ -89,6 +96,13 @@
 
 </div>
 <script>
+    window.addEventListener("load", function() {
+        const loader = document.getElementById("loader-wrapper");
+        // تأخير بسيط لنصف ثانية لضمان سلاسة الانتقال
+        setTimeout(() => {
+            loader.classList.add("loader-hidden");
+        }, 500);
+    });
     const weddingDate = new Date("June 7, 2026 00:00:00").getTime();
 
     const timer = setInterval(function() {
