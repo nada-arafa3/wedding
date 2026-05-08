@@ -9,7 +9,56 @@
 }
 
 
+/* تنسيق شاشة التحميل الكاملة */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fdfcfb; /* نفس لون خلفية الموقع */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* أعلى من أي شيء آخر */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
 
+.loader-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.letter {
+    font-family: 'Italianno', cursive; /* أو أي خط عربي تفضلينه */
+    font-size: 5rem;
+    color: #2c3e50; /* نفس لون الأسماء في التصميم */
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.heart {
+    font-size: 2.5rem;
+    color: #e74c3c;
+    animation: beat 1s infinite alternate;
+}
+
+/* أنيميشن الحروف */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* أنيميشن القلب */
+@keyframes beat {
+    to { transform: scale(1.3); }
+}
+
+/* كلاس للإخفاء بعد التحميل */
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
 /* سمحنا بالسكرول هنا */
 body, html {
     width: 100%;
