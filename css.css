@@ -3,6 +3,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+      font-family: 'Italianno'!important;
+
 }
 
 body, html {
@@ -35,13 +37,13 @@ body, html {
 .letter {
     font-family: 'Italianno', cursive;
     font-size: 5rem;
-    color: #2c3e50;
+    color: #4a5a6a9c;
     animation: pulse 1.5s infinite ease-in-out;
 }
 
 .heart {
     font-size: 2.5rem;
-    color: #e74c3c;
+    color: #4e7de0;
     animation: beat 1s infinite alternate;
 }
 
@@ -75,22 +77,22 @@ body, html {
 /* حالة العناصر قبل بداية الأنيميشن (مخفية) */
 .start-text {
     position: absolute; top: 3%; left: 50%; transform: translateX(-50%);
-    font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.5rem;
+    font-family: 'Italianno', serif; font-style: italic; font-size: 2.5rem;
     color: #4a5a6a; z-index: 10; 
     opacity: 0; 
 }
 
 .name-left {
     position: absolute; left: 15%; top: 20%; transform: translateY(-50%);
-    font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: bold;
-    color: #2c3e50; z-index: 10; 
+    font-family: 'Italianno', serif; font-size: 4rem; font-weight: bold;
+    color: #4a5a6a9c; z-index: 10; 
     opacity: 0;
 }
 
 .name-right {
     position: absolute; right: 15%; top: 20%; transform: translateY(-50%);
-    font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: bold;
-    color: #2c3e50; z-index: 10; 
+    font-family: 'Italianno', serif; font-size: 4rem; font-weight: bold;
+    color: #4a5a6a9c; z-index: 10; 
     opacity: 0;
 }
 
@@ -131,13 +133,26 @@ body, html {
 
 /* --- 5. باقي سيكشنات الموقع --- */
 .divider, .divider2 {
-    width: 100%;
-    display: block;
-    margin: -50px 0; /* لدمج الورد مع السيكشنات */
-    position: relative;
+    width: 50%;
+    top: 70vh;
+    /* display: block; */
+    /* margin: -50px 0; */
+    position: absolute;
     z-index: 20;
 }
-
+.divider{right:0}
+.divider2{left:0}
+section{position: relative;}
+.divi, .divi2 {
+    width: 50%;
+    top: -33vh;
+    /* display: block; */
+    /* margin: -50px 0; */
+    position: absolute;
+    z-index: 20;
+}
+.divi{right:0}
+.divi2{left:0}
 .invitation-details-section, .countdown-section, .location-section {
     width: 100%;
     padding: 80px 20px;
@@ -157,24 +172,25 @@ body, html {
 }
 
 /* تنسيقات الخطوط */
-.joyful-hearts { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #2c3e50; margin-bottom: 15px; }
-.cordially-invited { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #546e7a; margin-bottom: 40px; }
+.joyful-hearts { font-family: 'Italianno', serif; font-size: 2.2rem; color: #4a5a6a9c; margin-bottom: 15px; }
+.cordially-invited { font-family: 'Italianno', serif; font-size: 2.2rem; color: #546e7a; margin-bottom: 40px; }
 
 /* الـ Grid الخاص بالوقت والمعلومات */
 .info-grid, .timer-grid {
+    font-size: 1.5rem;
     display: flex;
     justify-content: space-around;
     border-top: 1px solid #f0f0f0;
     padding-top: 30px;
 }
 
-.timer-item span { display: block; font-size: 2.5rem; font-weight: bold; color: #2c3e50; }
+.timer-item span { display: block; font-size: 2.5rem; font-weight: bold; color: #4a5a6a9c; }
 .timer-item p { text-transform: uppercase; font-size: 0.8rem; color: #78909c; }
 
 /* الخريطة */
 .map-wrapper { width: 100%; border-radius: 10px; overflow: hidden; margin: 20px 0; border: 1px solid #eee; }
 .map-button {
-    display: inline-block; padding: 12px 25px; background-color: #2c3e50;
+    display: inline-block; padding: 12px 25px; background-color: #4a5a6a9c;
     color: #fff; text-decoration: none; border-radius: 25px; transition: 0.3s;
 }
 
@@ -184,7 +200,20 @@ body, html {
     .name-left { left: 5%; transform: translate(-50px, -50%); }
     .name-right { right: 5%; transform: translate(50px, -50%); }
     .start-text { font-size: 1.5rem; }
-    .centered-image { max-height: 60vh; }
     .info-grid, .timer-grid { flex-direction: column; gap: 20px; }
     .timer-item span { font-size: 1.8rem; }
+    .divider, .divider2 {
+    width: 100%;
+    top: 79vh;
+   
+}
+.divi, .divi2 {
+    width: 110%;
+    top: -30vh;
+    /* display: block; */
+    /* margin: -50px 0; */
+    position: absolute;
+    z-index: 20;
+}
+
 }
