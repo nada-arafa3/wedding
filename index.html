@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+    <title>wedding</title>
+</head>
+<body>
+    <body>
+<div class="wedding-card">
+  <!-- السيكشن الأول: الهيدر (صورة العروسين والأسماء) -->
+<header class="wedding-header">
+    <div class="header-content">
+        <p class="start-text">The start of our forever</p>
+        <span class="name-left">Nada</span>
+        <span class="name-right">Abd elhamed</span>
+        <img src="centerus.png" alt="Wedding Couple" class="centered-image">
+    </div>
+</header>
+<img class="divider" src="./Gemini_Generated_Image_9fk8019fk8019fk8-removebg-preview.png" alt="">
+<img class="divider2" src="./Gemini_Generated_Image_9fk8019fk8019fk8-removebg-preview.png" alt="">
+<!-- السيكشن الثاني: تفاصيل الدعوة (يظهر عند السكرول) -->
+<section class="invitation-details-section">
+    <div class="invite-card">
+        <h2 class="joyful-hearts">With Joyful Hearts</h2>
+        <p class="cordially-invited">You Are Invited To Celebrate The Union Of Our New Family</p>
+        
+        <div class="info-grid">
+            <div class="info-item">
+                <strong>When</strong>
+                <p>Sunday, June 7th 2026</p>
+            </div>
+            <div class="info-item">
+                <strong>Where</strong>
+                <p>Alexandria, Egypt <br> (sea garden hall)<br>
+                    6th october hotel for armed forces officers
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- سيكشن العد التنازلي -->
+<section class="countdown-section">
+    <div class="invite-card countdown-container">
+        <h2 class="joyful-hearts">Counting Down to Our Big Day</h2>
+        <div id="countdown" class="timer-grid">
+            <div class="timer-item">
+                <span id="days">00</span>
+                <p>Days</p>
+            </div>
+            <div class="timer-item">
+                <span id="hours">00</span>
+                <p>Hours</p>
+            </div>
+            <div class="timer-item">
+                <span id="minutes">00</span>
+                <p>Mins</p>
+            </div>
+            <div class="timer-item">
+                <span id="seconds">00</span>
+                <p>Secs</p>
+            </div>
+        </div>
+    </div>
+    <img class="divi" src="./Gemini_Generated_Image_9fk8019fk8019fk8-removebg-preview.png" alt="">
+<img class="divi2" src="./Gemini_Generated_Image_9fk8019fk8019fk8-removebg-preview.png" alt="">
+</section>
+
+<!-- سيكشن الخريطة -->
+<section class="location-section">
+    <div class="invite-card location-container">
+        <h2 class="joyful-hearts">Our Location</h2>
+        <p class="location-address">Sea Garden Hall - 6th October Hotel for Armed Forces Officers, Alexandria</p>
+        
+        <div class="map-wrapper">
+            <!-- Google Maps Embed -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.3477301239714!2d29.878435799999995!3d31.2110942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c15682f149dd%3A0x2a3897b5e097d44!2s6%20October%20Al%20Anfushi%20Hotel!5e0!3m2!1sen!2seg!4v1778267317778!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        
+        <a href="https://maps.app.goo.gl/9fk8019fk8019fk8" target="_blank" class="map-button">Open in Google Maps</a>
+    </div>
+      <img class="divi" src="./Gemini_Generated_Image_9fk8019fk8019fk8-removebg-preview.png" alt="">
+<img class="divi2" src="./Gemini_Generated_Image_9fk8019fk8019fk8-removebg-preview.png" alt="">
+</section>
+
+</div>
+<script>
+    const weddingDate = new Date("June 7, 2026 00:00:00").getTime();
+
+    const timer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById("countdown").innerHTML = "IT'S OUR WEDDING DAY!";
+        }
+    }, 1000);
+</script>
+</body>
+</html>
