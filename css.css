@@ -1,26 +1,28 @@
+/* --- 1. التنسيق العام --- */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    
-  font-family: "Italianno", cursive;
-  font-weight: 400;
-  font-style: normal;
 }
 
+body, html {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #fdfcfb;
+}
 
-/* تنسيق شاشة التحميل الكاملة */
+/* --- 2. شاشة التحميل (Preloader) --- */
 #loader-wrapper {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #fdfcfb; /* نفس لون خلفية الموقع */
+    background-color: #fdfcfb;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* أعلى من أي شيء آخر */
+    z-index: 9999;
     transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
@@ -31,9 +33,9 @@
 }
 
 .letter {
-    font-family: 'Italianno', cursive; /* أو أي خط عربي تفضلينه */
+    font-family: 'Italianno', cursive;
     font-size: 5rem;
-    color: #2c3e50; /* نفس لون الأسماء في التصميم */
+    color: #2c3e50;
     animation: pulse 1.5s infinite ease-in-out;
 }
 
@@ -43,109 +45,110 @@
     animation: beat 1s infinite alternate;
 }
 
-/* أنيميشن الحروف */
 @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 0.7; }
     50% { transform: scale(1.2); opacity: 1; }
 }
 
-/* أنيميشن القلب */
 @keyframes beat {
     to { transform: scale(1.3); }
 }
 
-/* كلاس للإخفاء بعد التحميل */
 .loader-hidden {
     opacity: 0;
     visibility: hidden;
 }
-/* سمحنا بالسكرول هنا */
-body, html {
-    width: 100%;
-    overflow-x: hidden; /* منع السكرول الجانبي فقط */
-    background-color: #fdfcfb; /* لون خلفية ناعم للسيكشن الجديد */
-}
 
-/* --- السيكشن الأول (Header) --- */
+/* --- 3. السيكشن الأول (Header) --- */
 .wedding-header {
     background-image: url("./Gemini_Generated_Image_ltq7ajltq7ajltq7.png");
     background-size: cover; 
     background-position: center;
     width: 100%;
-    height: 100vh; /* يملأ الشاشة بالكامل */
+    height: 100vh;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.header-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.divider{position: absolute;
-top: 70%;
-width: 50%;
-z-index: 999999999;}
-.divider2{position: absolute;
-top: 70%;
-width: 50%;
-right:1px
-;z-index: 999999999;}
-/* نفس تنسيقاتك السابقة للأهلي والأسماء */
+/* حالة العناصر قبل بداية الأنيميشن (مخفية) */
 .start-text {
     position: absolute; top: 3%; left: 50%; transform: translateX(-50%);
-    font-family: 'Italianno', serif; font-style: italic; font-size: 2.5rem;
-    color: #4a5a6a; z-index: 10; opacity: 0; animation: fadeIn 2s forwards 1s;
+    font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.5rem;
+    color: #4a5a6a; z-index: 10; 
+    opacity: 0; 
 }
 
 .name-left {
     position: absolute; left: 15%; top: 20%; transform: translateY(-50%);
-    font-family: 'Italianno', serif; font-size: 4rem; font-weight: bold;
-    color: #4a5a6a9c; z-index: 10; opacity: 0; animation: slideFromLeft 1.5s forwards;
+    font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: bold;
+    color: #2c3e50; z-index: 10; 
+    opacity: 0;
 }
 
 .name-right {
     position: absolute; right: 15%; top: 20%; transform: translateY(-50%);
-    font-family: 'Italianno', serif; font-size: 4rem; font-weight: bold;
-    color: #4a5a6a9c; z-index: 10; opacity: 0; animation: slideFromRight 1.5s forwards;
+    font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: bold;
+    color: #2c3e50; z-index: 10; 
+    opacity: 0;
 }
 
 .centered-image {
-    max-height: 85vh; width: auto; z-index: 5; opacity: 0; animation: fadeIn 2.5s forwards;
+    max-height: 85vh; width: auto; z-index: 5; 
+    opacity: 0;
 }
 
-/* --- السيكشن الثاني (Invitation) --- */
-.invitation-details-section {
+/* --- 4. تشغيل الأنيميشن بعد اختفاء اللودر --- */
+.start-animation .start-text {
+    animation: fadeIn 2s forwards;
+}
+
+.start-animation .name-left {
+    animation: slideFromLeft 1.5s forwards 0.5s;
+}
+
+.start-animation .name-right {
+    animation: slideFromRight 1.5s forwards 0.5s;
+}
+
+.start-animation .centered-image {
+    animation: fadeIn 2.5s forwards 0.2s;
+}
+
+/* تعريف الأنيميشنات */
+@keyframes fadeIn { to { opacity: 1; } }
+
+@keyframes slideFromLeft { 
+    0% { transform: translate(-100px, -50%); opacity: 0; } 
+    100% { transform: translate(0, -50%); opacity: 1; } 
+}
+
+@keyframes slideFromRight { 
+    0% { transform: translate(100px, -50%); opacity: 0; } 
+    100% { transform: translate(0, -50%); opacity: 1; } 
+}
+
+/* --- 5. باقي سيكشنات الموقع --- */
+.divider, .divider2 {
+    width: 100%;
+    display: block;
+    margin: -50px 0; /* لدمج الورد مع السيكشنات */
+    position: relative;
+    z-index: 20;
+}
+
+.invitation-details-section, .countdown-section, .location-section {
     width: 100%;
     padding: 80px 20px;
     display: flex;
     justify-content: center;
-    background-color: #fff; /* خلفية بيضاء للسيكشن الجديد لتفصله عن الهيدر */
+    background-color: #fff;
 }
-.info-item{    font-size: 1.5em;
-}
-section{position: relative;}
-.divi {
-    position: absolute;
-    top: -32vh;
-    height: 56vh;
-    width: 50%;
-    right: 0;
-}
-.divi2 {
-    position: absolute;
-    top: -32vh;
-    height: 56vh;
-    width: 50%;
-    left: 0;
-}
+
 .invite-card {
-width: 70vw;
+    max-width: 700px;
+    width: 100%;
     text-align: center;
     border: 1px solid #eee;
     padding: 50px;
@@ -153,163 +156,35 @@ width: 70vw;
     border-radius: 5px;
 }
 
-.joyful-hearts {
-    font-family: 'Italianno', serif;
-    font-size: 2.2rem;
-    color: #2c3e50;
-    margin-bottom: 15px;
-}
+/* تنسيقات الخطوط */
+.joyful-hearts { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #2c3e50; margin-bottom: 15px; }
+.cordially-invited { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #546e7a; margin-bottom: 40px; }
 
-.cordially-invited {
-    font-family: 'Italianno', serif;
-    font-size: 2rem;
-    color: #546e7a;
-    margin-bottom: 40px;
-}
-
-.info-grid {
+/* الـ Grid الخاص بالوقت والمعلومات */
+.info-grid, .timer-grid {
     display: flex;
     justify-content: space-around;
     border-top: 1px solid #f0f0f0;
     padding-top: 30px;
 }
 
-.info-item strong {
-    display: block;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1.1rem;
-    color: #2c3e50;
-    margin-bottom: 10px;
+.timer-item span { display: block; font-size: 2.5rem; font-weight: bold; color: #2c3e50; }
+.timer-item p { text-transform: uppercase; font-size: 0.8rem; color: #78909c; }
+
+/* الخريطة */
+.map-wrapper { width: 100%; border-radius: 10px; overflow: hidden; margin: 20px 0; border: 1px solid #eee; }
+.map-button {
+    display: inline-block; padding: 12px 25px; background-color: #2c3e50;
+    color: #fff; text-decoration: none; border-radius: 25px; transition: 0.3s;
 }
 
-.info-item p {
-    color: #78909c;
-}
-
-/* الأنيميشنات */
-@keyframes fadeIn { to { opacity: 1; } }
-@keyframes slideFromLeft { 0% { transform: translate(-100px, -50%); opacity: 0; } 100% { transform: translate(0, -50%); opacity: 1; } }
-@keyframes slideFromRight { 0% { transform: translate(100px, -50%); opacity: 0; } 100% { transform: translate(0, -50%); opacity: 1; } }
-
-/* --- ريسبونسف الموبايل --- */
+/* --- 6. ريسبونسف الموبايل --- */
 @media (max-width: 768px) {
     .name-left, .name-right { font-size: 2rem; top: 15%; }
-    .name-left { left: 5%; }
-    .name-right { right: 5%; }
+    .name-left { left: 5%; transform: translate(-50px, -50%); }
+    .name-right { right: 5%; transform: translate(50px, -50%); }
     .start-text { font-size: 1.5rem; }
-    
-    .invitation-details-section { padding: 50px 15px; }
-    .info-grid { flex-direction: column; gap: 30px; }
-  .divi{width: 0;}
-
-.divi2{width: 100%;}
-.divider2 {
-    position: absolute;
-    top: 75%;
-    width: 100%;
-    right: 1px;
-    z-index: 999999999;
-}
-.divider{
-width: 0px;    
-}
-.invite-card {
-    
-    padding-bottom: 78px;
-}
-}
-
-
-.countdown-section {
-    width: 100%;
-    padding: 85px 20px;
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-}
-
-.countdown-container {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #eee;
-}
-
-.timer-grid {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    border-top: 1px solid #f0f0f0;
-    padding-top: 20px;
-}
-
-.timer-item span {
-    display: block;
-    font-size: 2.5rem;
-    font-family: 'Playfair Display', serif;
-    color: #2c3e50;
-    font-weight: bold;
-}
-
-.timer-item p {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    color: #78909c;
-}
-
-/* للموبايل عشان الأرقام متدخلش في بعض */
-@media (max-width: 768px) {
+    .centered-image { max-height: 60vh; }
+    .info-grid, .timer-grid { flex-direction: column; gap: 20px; }
     .timer-item span { font-size: 1.8rem; }
-    .timer-item p { font-size: 0.6rem; }
-}
-.location-section {
-    width: 100%;
-    padding: 40px 20px 80px 20px; /* زيادة المساحة في الأسفل لقفلة الموقع */
-    display: flex;
-    justify-content: center;
-    background-color: #fff;
-}
-
-.location-container {
-    background: #fff;
-    width: 100%;
-    max-width: 700px;
-}
-
-.location-address {
-    font-family: 'Playfair Display', serif;
-    color: #546e7a;
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-}
-
-.map-wrapper {
-    width: 100%;
-    border-radius: 10px;
-    overflow: hidden; /* عشان زوايا الخريطة تبقى دائرية وشيك */
-    border: 1px solid #eee;
-    margin-bottom: 20px;
-}
-
-.map-button {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #2c3e50; /* نفس لون الأسماء */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 25px;
-    font-family: sans-serif;
-    font-size: 0.9rem;
-    transition: background 0.3s ease;
-}
-
-.map-button:hover {
-    background-color: #1a252f;
-}
-
-/* ريسبونسف للموبايل */
-@media (max-width: 768px) {
-    .map-wrapper iframe {
-        height: 250px;
-    }
 }
