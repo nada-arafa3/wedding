@@ -207,6 +207,10 @@ section{position: relative;}
     top: 79vh;
    
 }
+    .invitation-details-section, .countdown-section, .location-section {
+  
+    padding-top: 1vh;
+}
 .divi, .divi2 {
     width: 110%;
     top: -30vh;
